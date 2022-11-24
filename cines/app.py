@@ -27,15 +27,15 @@ def login_ses():
 @app.route('/movies', methods=['POST'])
 def moviesfun():
     if request.method == 'POST':
-        titulo = request.form['titulo']
+        title = request.form['title']
         url = request.form['url']
-        clasificacion = request.form['clasificacion']
-        funciones = request.form['funciones']
-        id_funciones = request.form['id_funciones']
-        fecha_hora = request.form['fecha_hora']
+        clasification = request.form['clasification']
+        function = request.form['function']
+        id_functions = request.form['id_functions']
+        date = request.form['data']
         cur = MySQLdb.Connection()
-        cur.cursor = ('INSTER INTO movies ( titulo, url, clasificacion, funciones, id_funciones, fecha_hora) VALUES (%s, %s, %s, %s, %s, %s, %s)', 
-        (titulo, url, clasificacion, funciones, id_funciones, fecha_hora))
+        cur.cursor = ('INSTER INTO movies ( title, url, clasification, function, id_functions, date) VALUES (%s, %s, %s, %s, %s, %s, %s)', 
+        (title, url, clasification, function, id_functions, date))
         MySQLdb.Connection.commit()
         
     return 'recibido'
